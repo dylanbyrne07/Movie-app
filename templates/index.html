@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Countdown maths game</title>
+  <body>
+    <main>
+        <h1>Countdown</h1>
+        <div class="nums">        
+          <button onclick="getRndInteger(0, 10)">get random int</button>
+          <script>
+            function getRndInteger(min, max) {
+              console.log(Math.floor(Math.random() * (max - min + 1) ) + min);
+            }
+          </script>
+
+        </div>
+    </main>
+  </body>
+</html>
