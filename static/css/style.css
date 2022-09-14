@@ -1,0 +1,18 @@
+.movies_grid{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(8, 200px);
+  grid-auto-rows: minmax(370px, auto);
+  justify-content: center;
+}
+
+.movies{
+  width: 200px;
+  height: auto;
+
+}
+
+.movies_image{
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}

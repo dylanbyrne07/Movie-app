@@ -1,0 +1,1 @@
+grid-template-columns: repeat(auto-fit, minimax(50px, 1fr));
