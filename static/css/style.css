@@ -21,6 +21,8 @@ h1{
 
 .description {
   justify-content: center;
+  color: #FF0000;
+  text-decoration: none;
 }
 
 h2{
