@@ -4,7 +4,6 @@
 <h1>Popular films</h1>
 <div class="movies_grid" >
     {% for movie in popular_movies['results']: %}
-    {% set id = movie['id'] | string() %}
     <a href="/movie/{{movie['id']}}">
         <div class="movies stacked" >
             <img class="movies_image" src="{{ 'https://image.tmdb.org/t/p/w500' + movie['poster_path']}} "  width="200" height="auto" alt="image">
