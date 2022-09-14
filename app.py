@@ -13,6 +13,6 @@ def home():
         print(movie['original_title'])
     return render_template('index.html', popular_movies=popular_movies)
 
-@app.route('/<int:Movie_id>')
-def film_page():
+@app.route('/movie/<int:Movie_id>')
+def film_page(Movie_id):
     return f"your movie id is {str(Movie_id)}"
