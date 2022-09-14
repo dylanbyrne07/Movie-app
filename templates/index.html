@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<h1>Popular films</h1>
 <div class="movies_grid" >
     {% for movie in popular_movies['results']: %}
     <div class="movies stacked" >
