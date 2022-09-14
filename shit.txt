@@ -1,1 +1,7 @@
+.stacked > * {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
 grid-template-columns: repeat(auto-fit, minimax(50px, 1fr));
+margin-bottom: 1rem;

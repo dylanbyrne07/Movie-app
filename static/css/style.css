@@ -1,18 +1,29 @@
 .movies_grid{
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(8, 200px);
+  grid-template-columns: repeat(7, 1fr);
   grid-auto-rows: minmax(370px, auto);
   justify-content: center;
+  
 }
+
 
 .movies{
   width: 200px;
   height: auto;
-
 }
 
+.description {
+  justify-content: center;
+}
+
+h2{
+  font-family: 'Oswald', serif;
+  font-size: 30px;
+}
 .movies_image{
+  width: 100%;
+  object-fit: cover;
   border-radius: 1rem;
-  margin-bottom: 1rem;
+  
 }
