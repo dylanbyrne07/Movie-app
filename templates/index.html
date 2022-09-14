@@ -7,7 +7,7 @@
         <img class="movies_image" src="{{ 'https://image.tmdb.org/t/p/w500' + movie['poster_path']}} "  width="200" height="auto" alt="image">
         <div class="description">
             <h2 class="movies_title">{{ movie['original_title'] }}</h2>
-            <p
+            <p>{{ movie['release_date'] }}</p>
         </div>
     </div>
     {% endfor %}
