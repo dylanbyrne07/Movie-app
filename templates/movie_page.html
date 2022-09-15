@@ -6,9 +6,14 @@
 <p class="description ">{{film_data['overview']}}</p>
 
 <div class="extra_imformation">
-    <p>{{film_data['budget']}}</p>
-    <p>{{film_data['budget']}}</p>
-    <p>{{film_data['revenue']}}</p>
+    {% if film_data['budget'] != 0 %}
+        <p>{{film_data['budget']}}</p>
+    {% endif %}
+
+    {% if film_data['revenue'] != 0 %}
+        <p>{{film_data['revenue']}}</p>
+    {% endif %}
+
     <p>{{film_data['runtime']}}</p>
     <p>{{film_data['release_date']}}</p>
 </div>
