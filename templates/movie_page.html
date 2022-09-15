@@ -1,5 +1,17 @@
 {% extends "layout.html" %}
 
-<p>{{film_data}}</p>
+{% block content %}
+<img class="" src="{{ 'https://image.tmdb.org/t/p/w500' + film_data['backdrop_path']}} "  width="200" height="auto" alt="image">
+<h1>{{film_data['original_title']}}</h1>
+<p class="description ">{{film_data['overview']}}</p>
+
+<div class="extra_imformation">
+    <p>{{film_data['budget']}}</p>
+    <p>{{film_data['budget']}}</p>
+    <p>{{film_data['revenue']}}</p>
+    <p>{{film_data['runtime']}}</p>
+    <p>{{film_data['release_date']}}</p>
+</div>
+<img class="" src="{{ 'https://image.tmdb.org/t/p/w500' + film_data['poster_path']}} "  width="200" height="auto" alt="image">
 
 {% endblock content %}
