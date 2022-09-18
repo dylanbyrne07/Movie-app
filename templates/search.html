@@ -2,11 +2,11 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
-<h1>Popular films</h1>
+<h1>Search results for .... {{name_searched}}</h1>
 <div class="movies_grid" >
-    {% for movie in popular_movies['results']: %}
+    {% for movie in searched_movies['results']: %}
     <a href="/movie/{{movie['id']}}">
-        <div class="movies stacked" >
+        <div class="movies" >
             <img class="movies_image" src="{{ 'https://image.tmdb.org/t/p/w500' + movie['poster_path']}} "  alt="image">
             <div class="description">
                 <h2 class="movies_title">{{ movie['original_title'] }}</h2>

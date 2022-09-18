@@ -1,22 +1,52 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<img class="" src="{{ 'https://image.tmdb.org/t/p/w500' + film_data['backdrop_path']}} "  width="200" height="auto" alt="image">
-<h1>{{film_data['original_title']}}</h1>
-<p class="description ">{{film_data['overview']}}</p>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie_page.css') }}" />
+<div class="top_movie_page">
+    <img class="backdrop_image" src="{{ 'https://image.tmdb.org/t/p/original' + film_data['backdrop_path']}} "  alt="image">  
+    <h1>{{film_data['original_title']}}</h1>
+    <h2>Description:</h2>
+    <p class="description ">{{film_data['overview']}}</p>
 
-<div class="extra_imformation">
-    {% if film_data['budget'] != 0 %}
-        <p>{{film_data['budget']}}</p>
-    {% endif %}
+    <div class="extra_imformation">
+        {% if film_data['budget'] != 0 %}
+            <p>
+                <span class="title">Budget:</span>
+                <span>{{film_data['budget']}}</span>
+            </p>
+        {% endif %}
 
-    {% if film_data['revenue'] != 0 %}
-        <p>{{film_data['revenue']}}</p>
-    {% endif %}
+        {% if film_data['revenue'] != 0 %}
+            <p>
+                <span class="title">Revenue:</span>
+                <span>{{film_data['revenue']}}</span>
+            </p>
+        {% endif %}
 
-    <p>{{film_data['runtime']}}</p>
-    <p>{{film_data['release_date']}}</p>
+        <p> 
+            <span class="title">Runtime:</span>
+            <span>{{film_data['runtime']}} minutes</span>
+        </p>
+
+        <p> 
+            <span class="title">Release_date:</span>
+            <span>{{film_data['release_date']}}</span>
+        </p>
+    </div>
+
 </div>
-<img class="" src="{{ 'https://image.tmdb.org/t/p/w500' + film_data['poster_path']}} "  width="200" height="auto" alt="image">
 
+<div class="movies_grid" >
+    {% for movie in recomended_movies['results']: %}
+    <a href="/movie/{{movie['id']}}">
+        <div class="movies stacked" >
+            <img class="movies_image" src="{{ 'https://image.tmdb.org/t/p/w500' + movie['poster_path']}} "  alt="image">
+            <div class="description">
+                <h2 class="movies_title">{{ movie['original_title'] }}</h2>
+                <p>{{ movie['release_date'] }}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
 {% endblock content %}

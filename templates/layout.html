@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movie app</title>
-    <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Oswald">
   <body>
+
+    <ul>
+      <li ><a href="/">Home</a></li>
+      <li ><a href="/trending">Trending</a></li>
+      <li ><a href="/top_rated">Top rated</a></li>
+    </ul>
+
+    <form method="post" action="{{ url_for('search') }}">
+      <input type="text" id="search"  name='searched'>
+      <input type="submit">
+    </form>
     {% block content %}
 
+  
     {% endblock content %}
   </body>
 </html>

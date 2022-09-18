@@ -7,3 +7,5 @@
 - diffrent lists
 - footer
 - eccomers/shopping features and basket page
+
+https://www.delftstack.com/howto/python-flask/change-port-in-flask/
