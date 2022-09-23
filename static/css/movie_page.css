@@ -87,3 +87,12 @@ a{
     justify-content: center;
     align-content: center;
     }
+
+@media screen and (max-width:600px) {
+    .backdrop_image{
+        margin: 1rem;
+        padding: 1rem;
+        
+    }
+    
+    }
