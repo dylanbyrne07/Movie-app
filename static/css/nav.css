@@ -42,6 +42,7 @@ ul{
 
   text-align: center;
   line-height: 60px;
+  
 }
 
 .navbar a:hover{
@@ -69,16 +70,26 @@ ul{
   margin: 10px;
 }
 
-@media screen and (max-width:950px) {
-  .navbar a:not(#title){
-    display: none;
-  }
+@media screen and (max-width:980px) {
+ 
   .search-container{
     display: none;
   }
   #hamburger_image{
     float: right;
     display: block;
+  }
+
+  .navbar a:not(#title){
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
   }
 
 }

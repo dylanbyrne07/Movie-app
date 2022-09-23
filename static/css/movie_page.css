@@ -89,10 +89,9 @@ a{
     }
 
 @media screen and (max-width:600px) {
-    .backdrop_image{
+    .top_movie_page{
         margin: 1rem;
         padding: 1rem;
-        
     }
     
     }
