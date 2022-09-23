@@ -7,18 +7,9 @@
     <title>Movie app</title>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Oswald">
+    
   <body>
-
-    <ul>
-      <li ><a href="/">Home</a></li>
-      <li ><a href="/trending">Trending</a></li>
-      <li ><a href="/top_rated">Top rated</a></li>
-    </ul>
-
-    <form method="post" action="{{ url_for('search') }}">
-      <input type="text" id="search"  name='searched'>
-      <input type="submit">
-    </form>
+    {% include 'navbar.html'%}
     {% block content %}
 
   

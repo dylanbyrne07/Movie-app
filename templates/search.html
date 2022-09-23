@@ -2,12 +2,20 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
-<h1>Search results for .... {{name_searched}}</h1>
+<script src="static/main.js"></script>
+<h1>Search results for .... {{name_searched_title}}</h1>
 <div class="movies_grid" >
     {% for movie in searched_movies['results']: %}
     <a href="/movie/{{movie['id']}}">
         <div class="movies" >
-            <img class="movies_image" src="{{ 'https://image.tmdb.org/t/p/w500' + movie['poster_path']}} "  alt="image">
+            
+            <img 
+                id="movie_image" 
+                class="movies_image" 
+                src="{{ 'https://image.tmdb.org/t/p/w500' + image_strings[loop.index]  }} "  
+                alt="no avalible image" 
+                onerror="this.onerror=null;this.src=' {{url_for('static', filename='No-Image-Placeholder.svg.png')}} ';"
+            >
             <div class="description">
                 <h2 class="movies_title">{{ movie['original_title'] }}</h2>
                 <p>{{ movie['release_date'] }}</p>

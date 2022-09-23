@@ -1,0 +1,22 @@
+{% block header%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}" />
+<header>
+    <nav class="navbar_container">
+        <ul>
+            <li id="title"   class="navbar title"><a href="" id="title"><h1>Movie App</h1></a></li>
+            <li class="navbar"><a href="/">Home</a></li>
+            <li class="navbar"><a href="/trending">Trending</a></li>
+            <li class="navbar"><a href="/top_rated">Top rated</a></li>
+            <div class="search-container">
+                <form method="post" action="{{ url_for('search') }}" class="navbar">
+                    <input type="text" id="search"  name='searched' placeholder="search movies...">
+                    <input type="submit">
+                </form>
+            </div>
+            <img id="hamburger_image" class="hamburger_image" src="/static/588a64e7d06f6719692a2d11.png" alt="image not found">
+        </ul> 
+       
+    </nav>
+  </header>
+
+{% endblock %}

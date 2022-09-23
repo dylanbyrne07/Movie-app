@@ -13,11 +13,23 @@ def home():
 
 @app.route('/search', methods=['POST'])
 def search():
-    name_searched = request.form['searched']
+    name_searched_not_encoded = request.form['searched']
+    name_searched_words = name_searched_not_encoded.split()
+    name_searched = ""
+    for word in name_searched_words:
+        name_searched = name_searched + word + "+"
+    name_searched = name_searched.rstrip(name_searched[-1])
+
     searched_api_url = f"https://api.themoviedb.org/3/search/movie?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7&language=en-US&query={name_searched}&page=1&include_adult=false"
     searched_movies_raw = requests.get(searched_api_url)
     searched_movies = json.loads(searched_movies_raw.content)
-    return render_template('search.html', searched_movies=searched_movies, name_searched=name_searched)
+    image_strings = [""]
+    for movie in searched_movies['results']:
+        image = "https://image.tmdb.org/t/p/w500/" +  str(movie['poster_path'])
+        image_strings.append(image)
+
+
+    return render_template('search.html', searched_movies=searched_movies, name_searched_title=name_searched_not_encoded, image_strings=image_strings)
 
 @app.route('/movie/<int:Movie_id>')
 def film_page(Movie_id):
@@ -26,11 +38,19 @@ def film_page(Movie_id):
     #get json data from the api and pass it into the html page so that it can be accesed and printed to screen
     film_data_raw = requests.get(api)
     film_data = json.loads(film_data_raw.content)
+    backdrop_img = str(film_data['backdrop_path'])
 
     recomended_movies_raw_name = f"https://api.themoviedb.org/3/movie/{Movie_id}/recommendations?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7&language=en-US&page=1"
     recomended_raw = requests.get(recomended_movies_raw_name)
     recomended_movies = json.loads(recomended_raw.content)
-    return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies)
+    image_strings_recomendations = [""]
+    for movie in recomended_movies['results']:
+        image = "https://image.tmdb.org/t/p/w500/" +  str(movie['poster_path'])
+        image_strings_recomendations.append(image)
+    
+
+
+    return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations)
 
 @app.route('/trending')
 def trending():
