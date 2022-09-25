@@ -59,4 +59,35 @@ h2{
   align-content: center;
 }
 
+.big_searchbox{
+  display: grid;
+  width: 1fr;
+  height: 100px;
+  margin: 100px;
+  outline: 2px;
+  outline-color: black;
+  
+}
 
+.big_search-container h1{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  
+}
+
+.big_searchbox input[type="text"]{
+  
+}
+
+.big_searchbox input[type="submit"]{
+  
+}
+
+
+@media screen and (min-width:930px) {
+  
+
+  
+ 
+}

@@ -28,7 +28,13 @@
         <li class="mobile_nav"><a href="/">Home</a></li>
         <li class="mobile_nav"><a href="/trending">Trending</a></li>
         <li class="movile_nav"><a href="/top_rated">Top rated</a></li>
-
+        <li class="movile_nav"><a href="/to_search">Search</a></li>
+        <div class="search-container">
+            <form method="post" action="{{ url_for('search') }}" class="navbar">
+                <input type="text" id="search"  name='searched' placeholder="search movies...">
+                <input type="submit"  value="search">
+            </form>
+        </div>
     </ul> 
 </div>
 

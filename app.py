@@ -64,6 +64,10 @@ def top_rated():
     top_rated = json.loads(top_rated_raw.content)
     return render_template('top_rated.html', top_rated=top_rated, page_heading="Top rated", page_name="Top_rated")
 
+@app.route('/to_search')
+def to_search():
+    return render_template('to_search.html')
+
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port=80)
 
