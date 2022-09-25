@@ -112,6 +112,46 @@ ul{
   transform: rotate(45deg) translate(-10px, -9px);
 }
 
+.mobile_navbar_container{
+  position: fixed;
+  top: 100;
+  left: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  z-index: 98;
+  background-color: #E84855;
+  padding-top: 100px;
+  transition: 0.4s;
+}
+
+.mobile_navbar_container.is-active{
+  left: 0;
+
+}
+
+.mobile_navbar_container ul{
+  padding-top: 90px;
+  margin-top: 90px;
+  text-align: center;
+  list-style: none;
+}
+
+.mobile_navbar_container a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Oswald', serif;
+  font-size: 50px;
+  margin: 100px;
+}
+
+.mobile_navbar_container a:hover{
+  text-decoration: underline;
+}
+
+
+
+
 @media screen and (max-width:980px) {
  
   .search-container{

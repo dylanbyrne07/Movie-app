@@ -44,6 +44,7 @@
             class="movies_image" 
             src="{{ 'https://image.tmdb.org/t/p/w500' + image_strings[loop.index]}} "  
             alt="image" 
+            onerror="this.onerror=null;this.src=' {{url_for('static', filename='No-Image-Placeholder.svg.png')}} ';"
             >
             <div class="description">
                 <h2 class="movies_title">{{ movie['original_title'] }}</h2>
