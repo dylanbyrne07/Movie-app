@@ -2,7 +2,6 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
-<script src="static/main.js"></script>
 <h1>Search results for .... {{name_searched_title}}</h1>
 <div class="movies_grid" >
     {% for movie in searched_movies['results']: %}

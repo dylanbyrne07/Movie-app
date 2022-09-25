@@ -2,6 +2,7 @@
 body {
   margin-top: 100px;
   padding:0;
+
 }
 
 .movies_grid{
@@ -44,6 +45,7 @@ h2{
   font-family: 'Oswald', serif;
   font-size: 30px;
 }
+
 .movies_image{
   width: 100%;
   object-fit: cover;

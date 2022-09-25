@@ -1,3 +1,4 @@
+
 {% block header%}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}" />
 <header>
@@ -13,10 +14,25 @@
                     <input type="submit"  value="search">
                 </form>
             </div>
-            <img id="hamburger_image" class="hamburger_image" src="/static/588a64e7d06f6719692a2d11.png" alt="image not found">
+            <button class="hamburger">
+                <div class="bar"></div>
+            </button>
+            
         </ul> 
-       
     </nav>
-  </header>
 
+</header>
+
+<!--
+<nav class="mobile_navbar_container">
+    <ul>
+        <li class="mobile_nav"><a href="/">Home</a></li>
+        <li class="mobile_nav"><a href="/trending">Trending</a></li>
+        <li class="movile_nav"><a href="/top_rated">Top rated</a></li>
+
+    </ul> 
+</nav>
+-->
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
 {% endblock %}
