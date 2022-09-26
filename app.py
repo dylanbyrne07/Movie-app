@@ -59,31 +59,25 @@ def film_page(Movie_id):
         image = "https://image.tmdb.org/t/p/w500/" +  str(movie['poster_path'])
         image_strings_recomendations.append(image)
 
-   
-
-
-
     where_to_watch_raw = f"https://api.themoviedb.org/3/movie/{Movie_id}/watch/providers?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7"
     where_to_watch = requests.get(where_to_watch_raw)
     where_to_watch_json = json.loads(where_to_watch.content)
-    
-
-
-
-   # for provider in where_to_watch_json['results']['IE']['rent']:
-    #    print(provider['logo_path'])
-     #   print(provider['provider_name'])
-
-   # for provider_subscription in where_to_watch_json['results']['IE']['flatrate']:
-    #    print(provider_subscription['logo_path'])
-     #   print(provider_subscription['provider_name'])
-    
-   #for provider_buy in where_to_watch_json['results']['IE']['buy']:
-    #    print(provider_buy['logo_path'])
-     #   print(provider_buy['provider_name'])
-
 
     return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations, where_to_watch_json=where_to_watch_json, rand_vid_key=rand_vid_key, no_video_avaliable=no_video_avaliable)
+
+@app.route('/collection/<int:Collection_id>')
+def collection(Collection_id):
+    Collection_id_str = str(Collection_id)
+    collection_api = f"https://api.themoviedb.org/3/collection/{Collection_id}?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7&language=en-US"
+    collection_id_requests = requests.get(collection_api)
+    collection_id_json = json.loads(collection_id_requests.content)
+
+    image_strings = [""]
+    for movie in collection_id_json['parts']:
+        image = "https://image.tmdb.org/t/p/w500/" +  str(movie['poster_path'])
+        image_strings.append(image)
+
+    return render_template('collections.html', collection_id_json=collection_id_json, image_strings=image_strings  )
 
 @app.route('/trending')
 def trending():

@@ -12,6 +12,7 @@ ul{
   top: 0;
   width: 100%;
   background-color: #E84855;
+  z-index: 99;
 
 }
 .navbar{
@@ -23,6 +24,7 @@ ul{
   justify-content: center;
   align-content: center;
   align-items: center;
+  z-index: 99;
 }
 
 
@@ -119,10 +121,11 @@ ul{
   width: 100%;
   min-height: 100vh;
   display: block;
-  z-index: 98;
+  z-index: 99;
   background-color: #E84855;
   padding-top: 100px;
   transition: 0.4s;
+
 }
 
 .mobile_navbar_container.is-active{

@@ -1,0 +1,35 @@
+
+
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie_page.css') }}" />
+<div class="top_movie_page">
+    <img class="backdrop_image" src="{{ 'https://image.tmdb.org/t/p/original' + collection_id_json['backdrop_path']}} "  alt="image not avalible">  
+    <h1>{{collection_id_json['name']}}</h1>
+    <h2 class="section_dividor">Description:</h2>
+    <p class="description ">{{collection_id_json['overview']}}</p>
+
+
+<div class="movies_grid" >
+    {% for movie in collection_id_json['parts']: %}
+    <a href="/movie/{{movie['id']}}">
+        <div class="movies stacked" >
+            <img 
+            class="movies_image" 
+            src="{{ 'https://image.tmdb.org/t/p/w500' + image_strings[loop.index]}} "  
+            alt="image" 
+            onerror="this.onerror=null;this.src=' {{url_for('static', filename='No-Image-Placeholder.svg.png')}} ';"
+            >
+            <div class="description">
+                <h2 class="movies_title">{{ movie['title'] }}</h2>
+                <p class="release_date">{{ movie['release_date'] }}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock content %}
+

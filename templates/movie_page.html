@@ -3,7 +3,7 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie_page.css') }}" />
 <div class="top_movie_page">
-    <img class="backdrop_image" src="{{ 'https://image.tmdb.org/t/p/original' + backdrop_img}} "  alt="image not avalible">  
+    <img class="backdrop_image" src="{{ 'https://image.tmdb.org/t/p/original' + film_data['backdrop_path']}} "  alt="image not avalible">  
     <h1>{{film_data['title']}}</h1>
     <h2 class="section_dividor">Description:</h2>
     <p class="description ">{{film_data['overview']}}</p>
@@ -91,6 +91,9 @@
         </div>
     {% endif %}
 </div>
+
+<a href="/collection/{{film_data['belongs_to_collection']['id']}}">{{film_data['belongs_to_collection']['name']}}</a>
+
 
 <div class="movies_grid" >
     {% for movie in recomended_movies['results']: %}
