@@ -80,9 +80,16 @@
                 {% endif %}
             {% endif %}
 
+            
         </div>
     </div>
-
+    {% if no_video_avaliable != True: %}
+        <div class="vid_container">
+            <iframe  class="vid" frameborder="0" allowfullscreen
+            src="https://www.youtube.com/embed/{{rand_vid_key}}">
+            </iframe> 
+        </div>
+    {% endif %}
 </div>
 
 <div class="movies_grid" >

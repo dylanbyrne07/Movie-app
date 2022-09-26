@@ -99,6 +99,7 @@ a{
 .provider_logo{
     width: 50px;
     height: auto;
+    border-radius: 1rem;
 }
 
 h3{
@@ -143,6 +144,24 @@ h3{
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
+    
+}
+
+.vid_container{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    
+}
+
+.vid{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
 }
 
 

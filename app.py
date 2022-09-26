@@ -1,8 +1,10 @@
 
+from importlib import import_module
 from flask import Flask, render_template, request, jsonify
 import requests
 import json
 import urllib.parse
+from random import randint
 
 app = Flask(__name__)
 
@@ -35,11 +37,19 @@ def search():
 @app.route('/movie/<int:Movie_id>')
 def film_page(Movie_id):
     movie_id_str = str(Movie_id)
-    api = f"https://api.themoviedb.org/3/movie/{Movie_id}?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7&language=en-US"
+    api = f"https://api.themoviedb.org/3/movie/{Movie_id}?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7&language=en-US&append_to_response=videos"
     #get json data from the api and pass it into the html page so that it can be accesed and printed to screen
     film_data_raw = requests.get(api)
     film_data = json.loads(film_data_raw.content)
     backdrop_img = str(film_data['backdrop_path'])
+
+    if len(film_data['videos']['results']) > 0:
+        rand_vid_num = randint(0, len(film_data['videos']['results'])-1 )
+        rand_vid_key = film_data['videos']['results'][rand_vid_num]['key']
+        no_video_avaliable = False
+    else:
+        rand_vid_key = "no"
+        no_video_avaliable = True
 
     recomended_movies_raw_name = f"https://api.themoviedb.org/3/movie/{Movie_id}/recommendations?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7&language=en-US&page=1"
     recomended_raw = requests.get(recomended_movies_raw_name)
@@ -49,11 +59,16 @@ def film_page(Movie_id):
         image = "https://image.tmdb.org/t/p/w500/" +  str(movie['poster_path'])
         image_strings_recomendations.append(image)
 
-    
+   
+
+
+
     where_to_watch_raw = f"https://api.themoviedb.org/3/movie/{Movie_id}/watch/providers?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7"
     where_to_watch = requests.get(where_to_watch_raw)
     where_to_watch_json = json.loads(where_to_watch.content)
     
+
+
 
    # for provider in where_to_watch_json['results']['IE']['rent']:
     #    print(provider['logo_path'])
@@ -68,7 +83,7 @@ def film_page(Movie_id):
      #   print(provider_buy['provider_name'])
 
 
-    return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations, where_to_watch_json=where_to_watch_json)
+    return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations, where_to_watch_json=where_to_watch_json, rand_vid_key=rand_vid_key, no_video_avaliable=no_video_avaliable)
 
 @app.route('/trending')
 def trending():
