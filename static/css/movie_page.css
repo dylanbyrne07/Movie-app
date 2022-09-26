@@ -93,5 +93,50 @@ a{
         margin: 1rem;
         padding: 1rem;
     }
+
+    .movies_grid{
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+        grid-auto-rows: minmax(80px, auto);
+        justify-content: start ;
+        align-content: center;
+        justify-self: center;
+        margin: 1rem;
+        
+      }
+      
+      .movies{
+        display: grid;
+        width: 140px;
+        height: auto;
+        justify-self: space-around;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        padding: 1rem;
+        margin: 2px;
+        padding-bottom: 15px;
+        
+      }
     
-    }
+      .description h2{
+        font-family: 'Oswald', serif;
+        font-size: 25px;
+        margin: 1;
+        font-weight: 100;
+
+        
+      }
+
+      .release_date p{
+        font-family: 'Oswald', serif;
+        font-size: 8px;
+        font-weight: 100;
+        justify-content: center;
+
+      }
+    
+      
+
+}

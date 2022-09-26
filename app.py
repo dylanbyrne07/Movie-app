@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request, jsonify
 import requests
 import json
@@ -47,7 +48,24 @@ def film_page(Movie_id):
     for movie in recomended_movies['results']:
         image = "https://image.tmdb.org/t/p/w500/" +  str(movie['poster_path'])
         image_strings_recomendations.append(image)
+
     
+    where_to_watch_raw = f"https://api.themoviedb.org/3/movie/{Movie_id}/watch/providers?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7"
+    where_to_watch = requests.get(where_to_watch_raw)
+    where_to_watch_json = json.loads(where_to_watch.content)
+    
+
+    for provider in where_to_watch_json['results']['IE']['rent']:
+        print(provider['logo_path'])
+        print(provider['provider_name'])
+
+    for provider_subscription in where_to_watch_json['results']['IE']['flatrate']:
+        print(provider_subscription['logo_path'])
+        print(provider_subscription['provider_name'])
+    
+    for provider_buy in where_to_watch_json['results']['IE']['buy']:
+        print(provider_buy['logo_path'])
+        print(provider_buy['provider_name'])
 
 
     return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations)
@@ -67,6 +85,8 @@ def top_rated():
 @app.route('/to_search')
 def to_search():
     return render_template('to_search.html')
+
+
 
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port=80)

@@ -5,7 +5,7 @@
 <div class="top_movie_page">
     <img class="backdrop_image" src="{{ 'https://image.tmdb.org/t/p/original' + backdrop_img}} "  alt="image not avalible">  
     <h1>{{film_data['original_title']}}</h1>
-    <h2>Description:</h2>
+    <h2 class="description">Description:</h2>
     <p class="description ">{{film_data['overview']}}</p>
 
     <div class="extra_imformation">
@@ -48,7 +48,7 @@
             >
             <div class="description">
                 <h2 class="movies_title">{{ movie['original_title'] }}</h2>
-                <p>{{ movie['release_date'] }}</p>
+                <p class="release_date">{{ movie['release_date'] }}</p>
             </div>
         </div>
     </a>
