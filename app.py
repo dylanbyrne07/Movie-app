@@ -55,20 +55,20 @@ def film_page(Movie_id):
     where_to_watch_json = json.loads(where_to_watch.content)
     
 
-    for provider in where_to_watch_json['results']['IE']['rent']:
-        print(provider['logo_path'])
-        print(provider['provider_name'])
+   # for provider in where_to_watch_json['results']['IE']['rent']:
+    #    print(provider['logo_path'])
+     #   print(provider['provider_name'])
 
-    for provider_subscription in where_to_watch_json['results']['IE']['flatrate']:
-        print(provider_subscription['logo_path'])
-        print(provider_subscription['provider_name'])
+   # for provider_subscription in where_to_watch_json['results']['IE']['flatrate']:
+    #    print(provider_subscription['logo_path'])
+     #   print(provider_subscription['provider_name'])
     
-    for provider_buy in where_to_watch_json['results']['IE']['buy']:
-        print(provider_buy['logo_path'])
-        print(provider_buy['provider_name'])
+   #for provider_buy in where_to_watch_json['results']['IE']['buy']:
+    #    print(provider_buy['logo_path'])
+     #   print(provider_buy['provider_name'])
 
 
-    return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations)
+    return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations, where_to_watch_json=where_to_watch_json)
 
 @app.route('/trending')
 def trending():

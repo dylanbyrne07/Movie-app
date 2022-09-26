@@ -32,10 +32,17 @@ h1 {
     
 }
 
-h2 {
+h2{
     font-family: 'Oswald', serif;
     padding-bottom: 10px;
+   
 
+}
+.section_dividor{
+    font-family: 'Oswald', serif;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    font-size: 40px;
 }
 
 p{
@@ -44,6 +51,7 @@ p{
 }
 .title{
     font-weight: bold;
+    
 }
 
 
@@ -87,6 +95,56 @@ a{
     justify-content: center;
     align-content: center;
     }
+
+.provider_logo{
+    width: 50px;
+    height: auto;
+}
+
+h3{
+    font-size: 15pt;
+    display: inline-block;
+    margin: 0px;
+    text-align: center;
+    font-family: 'Oswald', serif;
+}
+
+.rent{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.subsription{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.buy{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.provider{
+    display: grid;
+    width: 60px;
+    height: auto;
+    justify-content: space-around;
+    justify-content: left;
+    align-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
 
 @media screen and (max-width:600px) {
     .top_movie_page{
@@ -136,6 +194,8 @@ a{
         justify-content: center;
 
       }
+
+     
     
       
 

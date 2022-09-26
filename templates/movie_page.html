@@ -4,8 +4,8 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie_page.css') }}" />
 <div class="top_movie_page">
     <img class="backdrop_image" src="{{ 'https://image.tmdb.org/t/p/original' + backdrop_img}} "  alt="image not avalible">  
-    <h1>{{film_data['original_title']}}</h1>
-    <h2 class="description">Description:</h2>
+    <h1>{{film_data['title']}}</h1>
+    <h2 class="section_dividor">Description:</h2>
     <p class="description ">{{film_data['overview']}}</p>
 
     <div class="extra_imformation">
@@ -32,6 +32,55 @@
             <span class="title">Release_date:</span>
             <span>{{film_data['release_date']}}</span>
         </p>
+
+        <div class="watch_provider">
+   
+            {% if where_to_watch_json['results']['IE'] != null:%}
+
+                <h2 class="section_dividor">Where to Watch:</h2>
+                {% if where_to_watch_json['results']['IE']['rent'] != null: %}
+                    <h3>Rent</h3>
+                    <div class="rent">
+                        {% for provider in where_to_watch_json['results']['IE']['rent']: %}
+                        <div class="provider">
+                            <img class="provider_logo" src="{{ 'https://image.tmdb.org/t/p/w500' + provider['logo_path']}} "  alt="image not avalible">
+                            <p>{{ provider['provider_name'] }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <br>
+                {% if where_to_watch_json['results']['IE']['flatrate'] != null: %}
+
+                    <h3>Subscriptions</h3>
+                    <div class="subsription">
+                        {% for provider in where_to_watch_json['results']['IE']['flatrate']: %}
+                        <div class="provider">  
+                            <img class="provider_logo" src="{{ 'https://image.tmdb.org/t/p/w500' + provider['logo_path']}} "  alt="image not avalible">
+                            <p>{{ provider['provider_name'] }}</p>
+                        </div> 
+                    
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <br>
+
+
+                {% if where_to_watch_json['results']['IE']['buy'] != null: %}
+                    <h3>Buy</h3>
+                    <div class="buy">
+                        {% for provider in where_to_watch_json['results']['IE']['buy']: %}
+                        <div class="provider">
+                            <img class="provider_logo" src="{{ 'https://image.tmdb.org/t/p/w500' + provider['logo_path']}} "  alt="image not avalible">
+                            <p>{{ provider['provider_name'] }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endif %}
+
+        </div>
     </div>
 
 </div>
@@ -47,7 +96,7 @@
             onerror="this.onerror=null;this.src=' {{url_for('static', filename='No-Image-Placeholder.svg.png')}} ';"
             >
             <div class="description">
-                <h2 class="movies_title">{{ movie['original_title'] }}</h2>
+                <h2 class="movies_title">{{ movie['title'] }}</h2>
                 <p class="release_date">{{ movie['release_date'] }}</p>
             </div>
         </div>

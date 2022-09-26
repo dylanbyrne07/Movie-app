@@ -113,3 +113,20 @@ nav{
   margin-right: 16px;
   font-size: 17px;
 }
+
+h2{
+    font-family: 'Oswald', serif;
+    padding-bottom: 10px;
+    height: 40px;
+    width: 200px;
+    
+    border-radius: 1rem;
+    background-color: #E84855;
+
+    text-align: center;
+   
+    padding-top: 6px;
+    
+
+
+}
