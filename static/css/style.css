@@ -107,9 +107,9 @@ h2{
     width: 140px;
     height: auto;
     justify-self: space-around;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    justify-content: left;
+    align-content: flex-start;
+    align-items: flex-start;
     padding: 1rem;
     margin: 2px;
     padding-bottom: 15px;
@@ -126,7 +126,7 @@ h2{
 
   p{
     font-family: 'Oswald', serif;
-    
+    font-size: 8px;
     font-weight: 100;
     justify-content: center;
 

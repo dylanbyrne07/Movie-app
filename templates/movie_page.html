@@ -83,6 +83,11 @@
             
         </div>
     </div>
+    {% if is_collection == True: %}
+        <div class="collection">
+        <h2><a class="collection_link" href="/collection/{{film_data['belongs_to_collection']['id']}}">{{film_data['belongs_to_collection']['name']}}</a></h2>
+        </div>
+    {% endif %}
     {% if no_video_avaliable != True: %}
         <div class="vid_container">
             <iframe  class="vid" frameborder="0" allowfullscreen
@@ -92,7 +97,7 @@
     {% endif %}
 </div>
 
-<a href="/collection/{{film_data['belongs_to_collection']['id']}}">{{film_data['belongs_to_collection']['name']}}</a>
+
 
 
 <div class="movies_grid" >

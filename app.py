@@ -42,6 +42,7 @@ def film_page(Movie_id):
     film_data_raw = requests.get(api)
     film_data = json.loads(film_data_raw.content)
     backdrop_img = str(film_data['backdrop_path'])
+    print(film_data)
 
     if len(film_data['videos']['results']) > 0:
         rand_vid_num = randint(0, len(film_data['videos']['results'])-1 )
@@ -63,7 +64,15 @@ def film_page(Movie_id):
     where_to_watch = requests.get(where_to_watch_raw)
     where_to_watch_json = json.loads(where_to_watch.content)
 
-    return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations, where_to_watch_json=where_to_watch_json, rand_vid_key=rand_vid_key, no_video_avaliable=no_video_avaliable)
+    collection = str(film_data['belongs_to_collection'])
+    print(film_data['belongs_to_collection'])
+    if collection == 'None':
+        is_collection = False
+    else:
+        is_collection = True
+    
+    print(is_collection)
+    return render_template('movie_page.html', film_data=film_data, recomended_movies=recomended_movies ,backdrop_img=backdrop_img, image_strings=image_strings_recomendations, where_to_watch_json=where_to_watch_json, rand_vid_key=rand_vid_key, no_video_avaliable=no_video_avaliable, is_collection=is_collection)
 
 @app.route('/collection/<int:Collection_id>')
 def collection(Collection_id):
