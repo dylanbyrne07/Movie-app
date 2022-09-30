@@ -113,6 +113,10 @@ h3{
     padding-top: 0px;
 }
 
+.watch_provider{
+    padding-bottom: 15px;
+}
+
 .rent{
     display: flex;
     flex-wrap: wrap;
@@ -175,7 +179,7 @@ h3{
     align-content: center;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 15px;
 
 
 }

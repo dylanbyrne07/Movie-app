@@ -41,7 +41,9 @@ def film_page(Movie_id):
     #get json data from the api and pass it into the html page so that it can be accesed and printed to screen
     film_data_raw = requests.get(api)
     film_data = json.loads(film_data_raw.content)
+    print(film_data['backdrop_path'])
     backdrop_img = str(film_data['backdrop_path'])
+    
     print(film_data)
 
     if len(film_data['videos']['results']) > 0:
@@ -77,7 +79,7 @@ def film_page(Movie_id):
 @app.route('/collection/<int:Collection_id>')
 def collection(Collection_id):
     Collection_id_str = str(Collection_id)
-    collection_api = f"https://api.themoviedb.org/3/collection/{Collection_id}?api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7&language=en-US"
+    collection_api = f"https://api.themoviedb.org/3/collection/{Collection_id}?sort_by=release_date.asc&api_key=ca0668e9a773ee0bddc2b9e3a7fdacc7&language=en-US"
     collection_id_requests = requests.get(collection_api)
     collection_id_json = json.loads(collection_id_requests.content)
 
