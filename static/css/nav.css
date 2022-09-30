@@ -152,7 +152,19 @@ ul{
   text-decoration: underline;
 }
 
+@media screen and (max-width:368px) {
+  #title{
+    padding-right: 4px;
+    padding-left: 5px;
+  }
+}
 
+@media screen and (max-width:355px) {
+  #title{
+    padding-right: 2px;
+    padding-left: 3px;
+  }
+}
 
 
 @media screen and (max-width:980px) {

@@ -5,12 +5,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie_page.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/collection.css') }}" />
 <div class="top_movie_page">
-    <img class="backdrop_image" src="{{ 'https://image.tmdb.org/t/p/original' + collection_id_json['backdrop_path']}} "  alt="image not avalible">  
+    <img class="backdrop_image" src="{{ 'https://image.tmdb.org/t/p/original' + backdrop_img}} "  alt="image not avalible">  
     <h1>{{collection_id_json['name']}}</h1>
     <h2 class="section_dividor">Description:</h2>
     <p class="description ">{{collection_id_json['overview']}}</p>
+
 
 
 <div class="movies_grid" >

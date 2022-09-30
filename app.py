@@ -88,7 +88,8 @@ def collection(Collection_id):
         image = "https://image.tmdb.org/t/p/w500/" +  str(movie['poster_path'])
         image_strings.append(image)
 
-    return render_template('collections.html', collection_id_json=collection_id_json, image_strings=image_strings  )
+    backdrop_img = str(collection_id_json['backdrop_path'])
+    return render_template('collections.html', collection_id_json=collection_id_json, image_strings=image_strings, backdrop_img=backdrop_img  )
 
 @app.route('/trending')
 def trending():

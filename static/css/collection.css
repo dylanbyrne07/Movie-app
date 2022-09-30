@@ -96,11 +96,6 @@ a{
     align-content: center;
     }
 
-.provider_logo{
-    width: 50px;
-    height: auto;
-    border-radius: 1rem;
-}
 
 h3{
     font-size: 15pt;
@@ -113,76 +108,9 @@ h3{
     padding-top: 0px;
 }
 
-.watch_provider{
-    padding-bottom: 15px;
-}
-
-.rent{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.subsription{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.buy{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.provider{
-    display: grid;
-    width: 60px;
-    height: auto;
-    justify-content: space-around;
-    justify-content: left;
-    align-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    
-}
-
-.vid_container{
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-    
-}
-
-.vid{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-    z-index: 98;
-}
-
-.collection{
-    height: fit-content;
-    width: 100%;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    padding-top: 15px;
 
 
-}
+
 .collection_link{
     display: flex;
     align-content: center;
@@ -209,6 +137,19 @@ h3{
 .collection_link:hover{
     background-color: #db3c3c;
 }
+
+@media screen and (max-width:600px) {
+    .top_movie_page{
+        display: grid;
+        gap: .05rem;
+        grid-template-columns: minmax(5rem, 900px);
+        grid-auto-rows: minmax(10px, auto);
+        justify-content: space-evenly;
+        align-content: center;
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+}    
 
 
 @media screen and (max-width:600px) {
