@@ -157,13 +157,49 @@ ul{
     padding-right: 4px;
     padding-left: 5px;
   }
+  
+  
+  .mobile_navbar_container a{
+    
+    margin: 50px;
+  }
 }
 
 @media screen and (max-width:355px) {
   #title{
-    padding-right: 2px;
-    padding-left: 3px;
+    padding-right: 1px;
+    padding-left: 2px;
   }
+
+
+
+  
+}
+
+@media screen and (max-width:330px) {
+  #title{
+    padding-right: -3px;
+    padding-left: -25px;
+  }
+
+  #hamburger_image{
+    
+    margin: 2px;
+  }
+  
+  .hamburger {
+ 
+    padding: 5px;
+    margin: 15px;
+    margin-right: 25px;
+    padding-left: 1px;
+    margin-left: 1px;
+  }
+  
+
+  
+
+  
 }
 
 
@@ -194,6 +230,9 @@ ul{
   }
 
 }
+
+
+    
 
 
 
