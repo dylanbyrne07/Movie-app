@@ -260,6 +260,18 @@ h3{
 
       }
 
+      .provider{
+        display: grid;
+        width: 30px;
+        height: auto;
+        justify-content: space-around;
+        justify-content: left;
+        align-content: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+        
+    }
      
     
       
